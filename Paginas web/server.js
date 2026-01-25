@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -8,7 +9,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.'));
+app.use(express.static(path.join(__dirname)));
 
 // Configuración de Nodemailer
 const transporter = nodemailer.createTransport({
@@ -116,8 +117,19 @@ app.get('/api/test', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`✓ Servidor ejecutándose en puerto ${PORT}`);
-    console.log(`✓ API disponible en http://localhost:${PORT}`);
+// Ruta raíz para verificar que el servidor está funcionando
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Raultrainner.html'));
 });
+
+// Para desarrollo local
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`✓ Servidor ejecutándose en puerto ${PORT}`);
+        console.log(`✓ API disponible en http://localhost:${PORT}`);
+    });
+}
+
+// Exportar para Vercel
+module.exports = app;
