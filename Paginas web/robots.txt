@@ -1,0 +1,18 @@
+# robots.txt - Indicaciones para buscadores
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://www.raullencina.com/sitemap.xml
+
+# Rastreo
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

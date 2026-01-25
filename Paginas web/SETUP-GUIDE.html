@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración del Backend - Raúl Lencina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #e74c3c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .step h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        code {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            color: #e74c3c;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .checklist li.done:before {
+            content: "☑ ";
+            color: #28a745;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="emoji">🏋️</span> Raúl Lencina - Backend</h1>
+            <p>Guía de configuración del formulario de contacto</p>
+        </div>
+        
+        <div class="content">
+            <!-- Requisitos -->
+            <div class="section">
+                <h2><span class="emoji">📋</span> Requisitos Previos</h2>
+                
+                <div class="step">
+                    <h3>Instalaciones necesarias:</h3>
+                    <ul class="checklist">
+                        <li>Node.js (descargar desde https://nodejs.org/)</li>
+                        <li>Una cuenta de Gmail activa</li>
+                        <li>Acceso a configuración de seguridad de Google</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Paso 1: Instalar Node.js -->
+            <div class="section">
+                <h2><span class="emoji">🔧</span> Paso 1: Instalar Node.js</h2>
+                
+                <div class="step">
+                    <h3>Descargar e instalar</h3>
+                    <p>Visita <strong>https://nodejs.org/</strong> y descarga la versión LTS (recomendada)</p>
+                    <p>Una vez instalado, abre PowerShell y verifica:</p>
+                    <div class="code-block">node --version</div>
+                    <p>Deberías ver algo como: <code>v18.17.0</code></p>
+                </div>
+            </div>
+            
+            <!-- Paso 2: Contraseña de aplicación -->
+            <div class="section">
+                <h2><span class="emoji">🔐</span> Paso 2: Generar contraseña de aplicación Gmail</h2>
+                
+                <div class="step">
+                    <h3>Requisito: Verificación en dos pasos</h3>
+                    <p>Primero, activa la verificación en dos pasos en tu cuenta de Google:</p>
+                    <ol style="margin-left: 20px; color: #555;">
+                        <li>Ve a https://myaccount.google.com/security</li>
+                        <li>En la sección "Seguridad", busca "Verificación en dos pasos"</li>
+                        <li>Sigue los pasos para activarla</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h3>Obtener contraseña de aplicación</h3>
+                    <ol style="margin-left: 20px; color: #555;">
+                        <li>Ve a https://myaccount.google.com/security</li>
+                        <li>Desplázate hacia abajo y busca "Contraseñas de aplicación"</li>
+                        <li>Selecciona: <strong>Correo</strong> y <strong>Windows</strong></li>
+                        <li>Google te generará una contraseña de 16 caracteres</li>
+                        <li><strong>Cópiala y guárdala en lugar seguro</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ Importante:</strong> Esta contraseña es solo para usar en tu aplicación. No es tu contraseña de Gmail normal.
+                </div>
+            </div>
+            
+            <!-- Paso 3: Configurar .env -->
+            <div class="section">
+                <h2><span class="emoji">⚙️</span> Paso 3: Configurar el archivo .env</h2>
+                
+                <div class="step">
+                    <h3>Editar .env</h3>
+                    <p>Abre el archivo <code>.env</code> en tu editor de texto favorito.</p>
+                    <p>Verás algo así:</p>
+                    <div class="code-block">ADMIN_EMAIL=tu_email_aqui@gmail.com
+EMAIL_USER=tu_email_aqui@gmail.com
+EMAIL_PASSWORD=tu_contraseña_app_aqui
+PORT=3000</div>
+                    
+                    <p style="margin-top: 20px;"><strong>Reemplaza los valores:</strong></p>
+                    <ul style="margin-left: 20px; color: #555; margin-top: 10px;">
+                        <li><code>ADMIN_EMAIL</code> → Tu email de Gmail (ejemplo: raul@gmail.com)</li>
+                        <li><code>EMAIL_USER</code> → El mismo email de Gmail</li>
+                        <li><code>EMAIL_PASSWORD</code> → Contraseña de aplicación generada (16 caracteres)</li>
+                        <li><code>PORT</code> → 3000 (puedes dejarlo como está)</li>
+                    </ul>
+                </div>
+                
+                <div class="warning">
+                    <strong>🔒 Seguridad:</strong> NUNCA compartas este archivo. El .gitignore ya lo protege, pero no lo publiques.
+                </div>
+            </div>
+            
+            <!-- Paso 4: Instalar dependencias -->
+            <div class="section">
+                <h2><span class="emoji">📦</span> Paso 4: Instalar dependencias</h2>
+                
+                <div class="step">
+                    <h3>Ejecutar npm install</h3>
+                    <p>Abre PowerShell en la carpeta del proyecto y ejecuta:</p>
+                    <div class="code-block">npm install</div>
+                    
+                    <p style="margin-top: 20px;">Esto instalará todas las librerías necesarias:</p>
+                    <ul style="margin-left: 20px; color: #555;">
+                        <li><strong>express</strong> - Framework web</li>
+                        <li><strong>nodemailer</strong> - Para enviar emails</li>
+                        <li><strong>cors</strong> - Para solicitudes entre dominios</li>
+                        <li><strong>dotenv</strong> - Para variables de entorno</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Paso 5: Ejecutar servidor -->
+            <div class="section">
+                <h2><span class="emoji">🚀</span> Paso 5: Ejecutar el servidor</h2>
+                
+                <div class="step">
+                    <h3>Modo desarrollo (con auto-reload)</h3>
+                    <div class="code-block">npm run dev</div>
+                    
+                    <p style="margin-top: 20px;"><strong>O modo producción:</strong></p>
+                    <div class="code-block">npm start</div>
+                    
+                    <div class="success" style="margin-top: 20px;">
+                        Si todo está bien, verás:<br>
+                        <code>✓ Servidor ejecutándose en puerto 3000</code><br>
+                        <code>✓ API disponible en http://localhost:3000</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paso 6: Pruebas -->
+            <div class="section">
+                <h2><span class="emoji">🧪</span> Paso 6: Probar el backend</h2>
+                
+                <div class="step">
+                    <h3>Opción 1: Test de API</h3>
+                    <p>Abre tu navegador y ve a:</p>
+                    <code>http://localhost:3000/api/test</code>
+                    <p>Deberías ver:</p>
+                    <div class="code-block">{"status":"Backend funcionando correctamente","timestamp":"2026-01-25T..."}</div>
+                </div>
+                
+                <div class="step">
+                    <h3>Opción 2: Prueba completa</h3>
+                    <p>Abre <code>Raultrainner.html</code> en tu navegador (sin servidor web, solo abriendo el archivo)</p>
+                    <p>Llena el formulario de contacto y envía</p>
+                    <p>¡Deberías recibir un email en tu bandeja de entrada!</p>
+                </div>
+            </div>
+            
+            <!-- Actualizar WhatsApp -->
+            <div class="section">
+                <h2><span class="emoji">📱</span> Actualizar WhatsApp</h2>
+                
+                <div class="step">
+                    <h3>Agregar número de WhatsApp</h3>
+                    <p>En el archivo <code>Raultrainner.html</code>, busca la línea:</p>
+                    <div class="code-block">&lt;a href="#" title="WhatsApp"&gt;</div>
+                    
+                    <p style="margin-top: 20px;">Y reemplázala por (con tu número):</p>
+                    <div class="code-block">&lt;a href="https://wa.me/5493764828210?text=Hola%20Raúl" target="_blank" title="WhatsApp"&gt;</div>
+                    
+                    <p style="margin-top: 15px;">Cambia <code>5493764828210</code> por tu número (código país + número sin espacios ni guiones)</p>
+                </div>
+            </div>
+            
+            <!-- Troubleshooting -->
+            <div class="section">
+                <h2><span class="emoji">❌</span> Solución de problemas</h2>
+                
+                <div class="step">
+                    <h3>Error: "npm no se reconoce"</h3>
+                    <p>Node.js no está instalado o no está en el PATH. Reinstala Node.js desde https://nodejs.org/</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Error: "Cannot authenticate user"</h3>
+                    <p>Verifica que la contraseña de aplicación es correcta en .env</p>
+                    <p>Recuerda: es una contraseña de 16 caracteres, NO tu contraseña normal de Gmail</p>
+                </div>
+                
+                <div class="step">
+                    <h3>El formulario no envía</h3>
+                    <p>1. Abre la consola (F12) en el navegador</p>
+                    <p>2. Verifica que el servidor esté corriendo: http://localhost:3000/api/test</p>
+                    <p>3. Revisa los logs del servidor en PowerShell</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Gmail rechaza el correo</h3>
+                    <p>Gmail a veces bloquea conexiones. En https://myaccount.google.com/lesssecureapps puedes:</p>
+                    <p>- Activar "Acceso a aplicaciones menos seguras"</p>
+                    <p>O verificar en https://myaccount.google.com/security si hay alertas</p>
+                </div>
+            </div>
+            
+            <!-- Variables de entorno -->
+            <div class="section">
+                <h2><span class="emoji">📝</span> Variables de entorno</h2>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>ADMIN_EMAIL</code></td>
+                                <td>Tu email para recibir mensajes</td>
+                                <td>raul@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td><code>EMAIL_USER</code></td>
+                                <td>Email de Gmail para enviar</td>
+                                <td>raul@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td><code>EMAIL_PASSWORD</code></td>
+                                <td>Contraseña de aplicación</td>
+                                <td>abcd efgh ijkl mnop</td>
+                            </tr>
+                            <tr>
+                                <td><code>PORT</code></td>
+                                <td>Puerto del servidor</td>
+                                <td>3000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Próximos pasos -->
+            <div class="section">
+                <h2><span class="emoji">✅</span> Checklist Final</h2>
+                
+                <ul class="checklist">
+                    <li>Node.js instalado</li>
+                    <li>Verificación en dos pasos activada en Google</li>
+                    <li>Contraseña de aplicación generada</li>
+                    <li>.env configurado con credenciales</li>
+                    <li>npm install ejecutado</li>
+                    <li>Servidor corriendo en puerto 3000</li>
+                    <li>API test retorna status OK</li>
+                    <li>Formulario envía email correctamente</li>
+                    <li>WhatsApp link actualizado</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Raúl Lencina - Personal Trainer | Backend Setup Guide v1.0</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Para soporte, contacta a través del formulario de la página</p>
+        </div>
+    </div>
+</body>
+</html>

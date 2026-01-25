@@ -1,0 +1,33 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Variables de entorno (MANTENER SECRETO)
+.env
+.env.local
+.env.*.local
+
+# Editor de código
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Directorio temporal
+temp/
+tmp/
+
+# Cachés
+.cache/
+build/
+dist/
