@@ -1,8 +1,23 @@
-// Inicializar EmailJS - Credenciales configuradas
-emailjs.init({
-    publicKey: 'Wp6bcuFG3HNCid_1h',
-    serviceID: 'service_0mau13i'
-});
+// Esperar a que EmailJS esté disponible
+function initializeEmailJS() {
+    if (typeof emailjs !== 'undefined') {
+        // Inicializar EmailJS
+        emailjs.init({
+            publicKey: 'Wp6bcuFG3HNCid_1h',
+            serviceID: 'service_0mau13i'
+        });
+    } else {
+        // Reintentar si aún no carga
+        setTimeout(initializeEmailJS, 100);
+    }
+}
+
+// Llamar la función cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeEmailJS);
+} else {
+    initializeEmailJS();
+}
 
 // Menú móvil
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
