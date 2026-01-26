@@ -1,3 +1,9 @@
+// Inicializar EmailJS - Credenciales configuradas
+emailjs.init({
+    publicKey: 'Wp6bcuFG3HNCid_1h',
+    serviceID: 'service_0mau13i'
+});
+
 // Menú móvil
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navMenu = document.getElementById('navMenu');
@@ -78,19 +84,23 @@ contactForm.addEventListener('submit', async (e) => {
     }
     
     try {
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
+        // Enviar email mediante EmailJS
+        const result = await emailjs.send(
+            'service_0mau13i', // Service ID
+            'template_contact',      // Template ID
+            {
+                to_email: 'rulo.lenci07@gmail.com', // Tu email
+                user_name: formData.name,
+                user_email: formData.email,
+                user_phone: formData.phone || 'No proporcionado',
+                user_service: formData.service,
+                user_message: formData.message
+            }
+        );
         
-        const data = await response.json();
-        
-        if (data.success) {
+        if (result.status === 200) {
             // Mostrar mensaje de éxito
-            successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+            successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Me pondré en contacto contigo en menos de 24 horas.';
             successMessage.classList.add('active');
             
             // Resetear formulario
@@ -106,11 +116,11 @@ contactForm.addEventListener('submit', async (e) => {
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
         } else {
-            alert('⚠️ Error: ' + (data.message || 'No se pudo enviar el mensaje'));
+            alert('⚠️ Error: No se pudo enviar el mensaje');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('❌ Error de conexión. Verifica que el servidor esté corriendo en http://localhost:3000');
+        alert('❌ Error al enviar el mensaje: ' + error.message);
     } finally {
         // Rehabilitar botón
         submitBtn.disabled = false;
