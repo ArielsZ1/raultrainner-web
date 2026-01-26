@@ -110,11 +110,12 @@ contactForm.addEventListener('submit', async (e) => {
             'template_contact',      // Template ID
             {
                 to_email: 'rulo.lenci07@gmail.com', // Tu email
-                user_name: formData.name,
-                user_email: formData.email,
-                user_phone: formData.phone || 'No proporcionado',
-                user_service: formData.service,
-                user_message: formData.message
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone || 'No proporcionado',
+                service: formData.service,
+                message: formData.message,
+                time: new Date().toLocaleString('es-AR')
             }
         );
         
