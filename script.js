@@ -99,6 +99,11 @@ contactForm.addEventListener('submit', async (e) => {
     }
     
     try {
+        // Verificar que EmailJS está cargado
+        if (typeof emailjs === 'undefined') {
+            throw new Error('EmailJS no se pudo cargar. Por favor, recarga la página.');
+        }
+        
         // Enviar email mediante EmailJS
         const result = await emailjs.send(
             'service_0mau13i', // Service ID
