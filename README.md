@@ -226,6 +226,14 @@ Ejemplo: `https://wa.me/5493764828210`
 - ♿ **Accesibilidad WCAG 2.1 AA** - Focus states, prefers-reduced-motion
 - ⚡ **Performance** - 60fps smooth, will-change optimization
 
+### ✨ Extras Premium
+- 🎬 **Loader elegante** - Fade-in/fade-out animations
+- 🌟 **Canvas partículas** - ~40 partículas animadas en hero
+- 🖼️ **Hero cinematográfico** - Imagen, blur y overlay gradiente
+- 💫 **Sistema de sombras** - Variables CSS (shadow-sm/md/lg/xl)
+- 💎 **Botones mejorados** - Microcopy + overlay animation
+- ⭐ **Testimonios premium** - Badges de tiempo (3 meses, 2 meses)
+
 ---
 
 ## 📚 Documentación Completa
@@ -241,16 +249,20 @@ Este repositorio incluye guías exhaustivas para cada aspecto del proyecto:
 | **[UPDATES-COMPLETED.md](UPDATES-COMPLETED.md)** | ✅ Lista de cambios realizados |
 | **[BEFORE-AFTER-COMPARISON.md](BEFORE-AFTER-COMPARISON.md)** | 📊 Comparativa antes/después |
 | **[STYLING-QUICK-GUIDE.md](STYLING-QUICK-GUIDE.md)** | 🎯 Guía rápida de estilos |
-| **[DEPLOYMENT-GUIDE.md](DEPLOYMENT-GUIDE.md)** | 🌐 Cómo desplegar a producción |
+| **[PREMIUM-EXTRAS.md](PREMIUM-EXTRAS.md)** | 💎 Extras premium: loader, partículas, sombras |
 
 ---
 
-## 🎯 Características Principales por Sección
+## 🚀 Características Principales por Sección
 
 ### Hero Section
 - Fondo animado con floatBG (12s)
+- ✨ **NUEVO**: Imagen de fondo con blur cinematográfico
+- ✨ **NUEVO**: ~40 partículas animadas en canvas
+- ✨ **NUEVO**: Overlay degradado con mix-blend-mode
 - Degradado premium #071026 → #081226
 - CTA buttons con hover glassmorphism
+- ✨ **NUEVO**: Microcopy mejorado en botones ("Consulta sin costo")
 - Responsive typography
 
 ### Services Cards
@@ -269,6 +281,7 @@ Este repositorio incluye guías exhaustivas para cada aspecto del proyecto:
 - Avatar circles
 - Rating system (⭐)
 - Quote styling
+- ✨ **NUEVO**: Badges de tiempo (3 meses, 2 meses, etc)
 - Carousel-ready structure
 
 ### Contact Form
