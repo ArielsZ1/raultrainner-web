@@ -19,13 +19,41 @@ if (document.readyState === 'loading') {
     initializeEmailJS();
 }
 
+// ===== INTERSECTION OBSERVER PARA ANIMACIONES DE ENTRADA =====
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Aplicar reveal a elementos específicos
+document.addEventListener('DOMContentLoaded', () => {
+    // Agregar clase reveal a cards si no está presente
+    const cards = document.querySelectorAll('.service-card, .pricing-card, .testimonial-card');
+    cards.forEach(card => {
+        if (!card.classList.contains('reveal')) {
+            card.classList.add('reveal');
+        }
+        observer.observe(card);
+    });
+});
+
 // Menú móvil
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navMenu = document.getElementById('navMenu');
+const nav = document.querySelector('nav');
 
 mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+    nav.classList.toggle('open');
+    mobileMenuBtn.innerHTML = nav.classList.contains('open') 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
 });
@@ -34,7 +62,7 @@ mobileMenuBtn.addEventListener('click', () => {
 const navLinks = document.querySelectorAll('nav ul li a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        nav.classList.remove('open');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     });
 });
@@ -186,14 +214,7 @@ faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
     
     question.addEventListener('click', () => {
-        // Cerrar otros items si queremos solo uno abierto
-        // faqItems.forEach(otherItem => {
-        //     if (otherItem !== item) {
-        //         otherItem.classList.remove('active');
-        //     }
-        // });
-        
         // Toggle del item actual
-        item.classList.toggle('active');
+        item.classList.toggle('open');
     });
 });
