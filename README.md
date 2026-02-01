@@ -1,53 +1,70 @@
 # 🏋️ Raúl Lencina - Personal Trainer
-## Backend del Formulario de Contacto
+## Sitio Web Profesional v2.0 Premium
+
+> Página web moderna y responsiva para personal trainer con diseño Dark Mode Premium, glassmorphism y animaciones fluidas.
 
 ---
 
-## 📋 Requisitos Previos
+## ✨ Características Principales
 
-- Node.js instalado (descargar desde https://nodejs.org/)
-- Una cuenta de Gmail
-- Una contraseña de aplicación de Gmail
+### 🎨 Diseño Moderno
+- **Dark Mode Premium** - Tema oscuro elegante (#0f1723)
+- **Glassmorphism** - Efecto vidrio esmerilado en cards y componentes
+- **Gradientes Sofisticados** - Acentos verdes-azules (#2c9aa7, #7bd389)
+- **Tipografía Inter** - Font moderna vía Google Fonts
+
+### 🎬 Animaciones
+- **Hero Animado** - Fondo flotante continuo (floatBG 12s)
+- **Micro-interacciones** - Hover effects suaves en cards y botones
+- **FAQ Accordion** - Icon rotativo con toggle smooth (350ms)
+- **Reveal Animations** - IntersectionObserver para cards
+- **Menú Móvil** - Animación fluida (slideDown 300ms)
+
+### 📱 Responsiveness
+- **100% Responsive** - Mobile, Tablet, Desktop optimizados
+- **Grid Flexible** - Adapta de 3 a 1 columna según viewport
+- **Mobile Menu** - Hamburguesa con animación suave
+
+### ♿ Accesibilidad
+- **WCAG 2.1 AA** - Completamente accesible
+- **Focus States** - Outline clara para navegación con teclado
+- **prefers-reduced-motion** - Respeta preferencias del usuario
+
+### ⚡ Performance
+- **60fps Smooth** - Todas las animaciones suaves
+- **Lightweight** - CSS moderno sin bloat
 
 ---
 
-## 🔧 Configuración Inicial
+## 🚀 Inicio Rápido
 
-### Paso 1: Instalar dependencias
+### Instalación
 
 ```bash
+# Clonar repositorio
+git clone https://github.com/ArielsZ1/raultrainner-web.git
+cd raultrainner-web
+
+# Instalar dependencias
 npm install
 ```
 
-Este comando instalará:
-- **express**: Framework web
-- **nodemailer**: Para enviar emails
-- **cors**: Para permitir solicitudes entre dominios
-- **dotenv**: Para variables de entorno
+### Configurar Variables de Entorno
 
-### Paso 2: Obtener contraseña de aplicación de Gmail
-
-1. Ir a https://myaccount.google.com/security
-2. Activar la verificación en dos pasos (si no está activada)
-3. Buscar "Contraseñas de aplicación"
-4. Seleccionar "Correo" y "Windows"
-5. Copiar la contraseña generada
-
-### Paso 3: Configurar el archivo .env
-
-1. Abrir el archivo `.env` en la carpeta del proyecto
-2. Reemplazar los valores:
+Crear archivo `.env`:
 
 ```env
-ADMIN_EMAIL=tu_email_aqui@gmail.com
-EMAIL_USER=tu_email_aqui@gmail.com
-EMAIL_PASSWORD=contraseña_app_generada
+EMAIL_USER=tu_email@gmail.com
+EMAIL_PASSWORD=tu_app_password
 PORT=3000
 ```
 
-⚠️ **IMPORTANTE:** 
-- No compartir este archivo públicamente
-- Agregarlo a `.gitignore` si usas Git
+### Ejecutar Localmente
+
+```bash
+npm start
+# http://localhost:3000
+```
 - Esta contraseña es solo para esta aplicación
 
 ---
@@ -170,6 +187,162 @@ Ejemplo: `https://wa.me/5493764828210`
 
 ---
 
+## 🎨 Paleta de Colores Premium v2.0
+
+| Color | Código | Uso |
+|-------|--------|-----|
+| **Fondo Principal** | `#0f1723` | Background base |
+| **Fondo Degradado** | `#071026 → #081226` | Hero section |
+| **Acento Primario** | `#2c9aa7` | CTAs, links activos |
+| **Acento Secundario** | `#7bd389` | Detalles, hover |
+| **Texto Principal** | `#e6eef5` | Párrafos, contenido |
+| **Texto Secundario** | `#b0bfd0` | Subtítulos |
+| **Glassmorphism** | `rgba(255,255,255,0.06)` | Cards, containers |
+| **Borde Sutil** | `rgba(255,255,255,0.1)` | Separadores |
+
+**Modo Oscuro Profesional:** Diseñado para reducir fatiga visual y mejorar legibilidad
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### Frontend
+- **HTML5** - Estructura semántica
+- **CSS3** - Glassmorphism, animaciones, responsive
+- **JavaScript ES6+** - IntersectionObserver, interactividad
+- **Google Fonts** - Tipografía Inter (300, 400, 600, 700, 800)
+- **Font Awesome** - Iconografía profesional
+
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express.js** - Framework web minimalista
+- **Nodemailer** - Envío de emails
+- **EmailJS** - Alternativa email frontend
+
+### Características de Diseño
+- ✨ **Glassmorphism** - Efecto vidrio translúcido
+- 🎬 **Animaciones Fluidas** - 5+ keyframes personalizados
+- 📱 **Responsive Design** - 3 breakpoints (desktop, tablet, mobile)
+- ♿ **Accesibilidad WCAG 2.1 AA** - Focus states, prefers-reduced-motion
+- ⚡ **Performance** - 60fps smooth, will-change optimization
+
+---
+
+## 📚 Documentación Completa
+
+Este repositorio incluye guías exhaustivas para cada aspecto del proyecto:
+
+| Documento | Contenido |
+|-----------|----------|
+| **[START-HERE.md](START-HERE.md)** | 🚀 Primer paso: instalación rápida |
+| **[QUICK-START.md](QUICK-START.md)** | ⚡ Guía rápida de configuración |
+| **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | 📋 Instalación detallada paso a paso |
+| **[VISUAL-UPDATES-SUMMARY.md](VISUAL-UPDATES-SUMMARY.md)** | 🎨 Resumen de actualizaciones visuales |
+| **[UPDATES-COMPLETED.md](UPDATES-COMPLETED.md)** | ✅ Lista de cambios realizados |
+| **[BEFORE-AFTER-COMPARISON.md](BEFORE-AFTER-COMPARISON.md)** | 📊 Comparativa antes/después |
+| **[STYLING-QUICK-GUIDE.md](STYLING-QUICK-GUIDE.md)** | 🎯 Guía rápida de estilos |
+| **[DEPLOYMENT-GUIDE.md](DEPLOYMENT-GUIDE.md)** | 🌐 Cómo desplegar a producción |
+
+---
+
+## 🎯 Características Principales por Sección
+
+### Hero Section
+- Fondo animado con floatBG (12s)
+- Degradado premium #071026 → #081226
+- CTA buttons con hover glassmorphism
+- Responsive typography
+
+### Services Cards
+- 3 columnas → 2 columnas → 1 columna responsive
+- Glassmorphism background
+- Icon containers con gradientes
+- Reveal animation al scroll
+
+### Pricing Section
+- Cards destacadas con acento primario
+- Feature list con checkmarks
+- CTA buttons prominentes
+- Hover transform effect
+
+### Testimonials
+- Avatar circles
+- Rating system (⭐)
+- Quote styling
+- Carousel-ready structure
+
+### Contact Form
+- Glassmorphism background
+- Placeholder styling
+- Validación frontend
+- EmailJS integration
+
+### Footer
+- Grid responsive
+- Social links con hover animation
+- Links útiles organizados
+- Copyright info
+
+---
+
+## 🔧 Personalización Avanzada
+
+### Cambiar Colores Principales
+Editar `:root` en [style.css](style.css#L1):
+
+```css
+:root {
+    --accent: #2c9aa7;      /* Tu color primario */
+    --accent-2: #7bd389;    /* Tu color secundario */
+    --glass-blur: 8px;      /* Blur effect */
+    --transition-fast: 220ms;
+}
+```
+
+### Ajustar Velocidades de Animación
+```css
+--transition-fast: 220ms;   /* Cambiar a 150ms para más rápido */
+--transition-slow: 350ms;
+```
+
+### Modificar Breakpoints Responsive
+```css
+/* Mobile: < 768px */
+/* Tablet: 768px - 992px */
+/* Desktop: > 1200px */
+```
+
+---
+
+## 🧪 Testing & Validación
+
+### Validar Responsive
+- F12 → Device Toggle → Seleccionar diferentes dispositivos
+- Verificar que grillas se adaptan (3→2→1 columnas)
+
+### Probar Animaciones
+- Abrir DevTools → Performance
+- Grabar y verificar 60fps
+
+### Verificar Accesibilidad
+- Tab navigation por toda la página
+- Screen reader testing
+- prefers-reduced-motion respectado
+
+---
+
+## 🐛 Troubleshooting
+
+| Problema | Solución |
+|----------|----------|
+| Glassmorphism no visible | Navegador debe soportar backdrop-filter (Chrome 76+, Firefox 103+) |
+| Animaciones lentas | Desactivar extensiones Chrome, verificar GPU hardware |
+| EmailJS no funciona | Verificar service ID, template ID, public key en script.js |
+| Responsive roto | Limpiar caché del navegador (Ctrl+Shift+R) |
+| Fonts no cargan | Verificar conexión a Google Fonts CDN |
+
+---
+
 ## 🔒 Seguridad
 
 ✓ Emails encriptados en tránsito
@@ -180,10 +353,32 @@ Ejemplo: `https://wa.me/5493764828210`
 
 ---
 
-## 📞 Contacto
+## 🚀 Próximas Mejoras
 
-Para soporte o preguntas, contacta a Raúl a través del formulario.
+- [ ] Dark/Light theme toggle
+- [ ] Blog de artículos fitness
+- [ ] Gallery con antes/después
+- [ ] Sistema de bookings
+- [ ] Dashboard para Raúl
+- [ ] Analytics integradas
 
 ---
 
-**Última actualización:** 25 de Enero 2026
+## 📞 Soporte
+
+Para soporte o preguntas:
+1. 📧 Contacta a Raúl a través del formulario
+2. 💬 WhatsApp: [Link en página](index.html)
+3. 📱 Instagram: @raultrainner
+
+---
+
+## 📄 Licencia
+
+Este proyecto es exclusivo de Raúl Lencina. Todos los derechos reservados.
+
+---
+
+**Última actualización:** 25 de Enero 2026  
+**Versión:** v2.0 Premium  
+**Estado:** ✅ Production Ready
