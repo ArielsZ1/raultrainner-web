@@ -1,3 +1,103 @@
+// ===== LOADER =====
+window.addEventListener('load', () => {
+    const loaderWrapper = document.getElementById('loaderWrapper');
+    if (loaderWrapper) {
+        loaderWrapper.style.animation = 'fadeOutLoader 800ms ease-out forwards';
+    }
+});
+
+// ===== PARTICLE CANVAS ANIMATION =====
+function initializeParticles() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let animationId;
+    
+    // Responsive canvas
+    function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Crear partículas
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.opacity = Math.random() * 0.3 + 0.1;
+            this.maxOpacity = this.opacity;
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            // Rebote en bordes
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        
+        draw() {
+            ctx.fillStyle = `rgba(44, 154, 167, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    
+    // Array de partículas (~40)
+    let particles = [];
+    for (let i = 0; i < 40; i++) {
+        particles.push(new Particle());
+    }
+    
+    // Animación
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+            
+            // Efecto hover suave
+            particles.forEach(other => {
+                const dx = particle.x - other.x;
+                const dy = particle.y - other.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    ctx.strokeStyle = `rgba(44, 154, 167, ${0.1 * (1 - distance / 100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(other.x, other.y);
+                    ctx.stroke();
+                }
+            });
+        });
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
+
+// Esperar a que el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeParticles);
+} else {
+    initializeParticles();
+}
+
 // Esperar a que EmailJS esté disponible
 function initializeEmailJS() {
     if (typeof emailjs !== 'undefined') {

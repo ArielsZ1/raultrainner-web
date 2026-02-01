@@ -28,10 +28,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loader elegante -->
+    <div class="loader-wrapper" id="loaderWrapper">
+        <div class="loader">
+            <div class="loader-spinner"></div>
+            <p>Cargando tu futuro...</p>
+        </div>
+    </div>
     <!-- Header y Navegación -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Raúl <span>Lencina</span></a>
+            <a href="#" class="logo">
+                <span class="logo-text">Raúl <span>Lencina</span></span>
+                <!-- Micro-animación Lottie opcional (placeholder) -->
+                <div id="lottieContainer" class="logo-animation" style="display:none;"></div>
+            </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -52,11 +63,27 @@
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="container">
+        <!-- Canvas para partículas -->
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        
+        <!-- Imagen de fondo con overlay -->
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Hero background" 
+                 class="hero-image"
+                 loading="lazy">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
             <h1>Transforma tu cuerpo, <span class="highlight">transforma tu vida</span></h1>
             <p>Soy Raúl Lencina, personal trainer certificado. Te ayudo a alcanzar tus metas de fitness con un enfoque personalizado, seguro y efectivo.</p>
             <div class="hero-btns">
-                <a href="#contacto" class="btn">Reserva tu primera sesión</a>
+                <a href="#contacto" class="btn">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>Reserva tu primera sesión</span>
+                    <small>Consulta sin costo</small>
+                </a>
                 <a href="#sobre-mi" class="btn btn-secondary">Conoce más sobre mí</a>
             </div>
         </div>
@@ -155,6 +182,7 @@
                         <div class="testimonial-info">
                             <h4>Juan Martínez</h4>
                             <p>Garupa, Misiones</p>
+                            <span class="testimonial-badge"><i class="fas fa-calendar-check"></i> 3 meses</span>
                         </div>
                     </div>
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
@@ -167,6 +195,7 @@
                         <div class="testimonial-info">
                             <h4>María González</h4>
                             <p>Puerto Iguazú</p>
+                            <span class="testimonial-badge"><i class="fas fa-calendar-check"></i> 2 meses</span>
                         </div>
                     </div>
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
@@ -179,6 +208,7 @@
                         <div class="testimonial-info">
                             <h4>Carlos Fernández</h4>
                             <p>Oberá</p>
+                            <span class="testimonial-badge"><i class="fas fa-calendar-check"></i> 4 meses</span>
                         </div>
                     </div>
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
@@ -404,6 +434,8 @@
 
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <!-- Lottie (opcional para micro-animaciones futuras) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
