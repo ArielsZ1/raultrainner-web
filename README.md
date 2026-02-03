@@ -57,7 +57,12 @@ Crear archivo `.env`:
 EMAIL_USER=tu_email@gmail.com
 EMAIL_PASSWORD=tu_app_password
 PORT=3000
+ADMIN_EMAIL=admin@raultrainner.com
+ADMIN_PASSWORD=change_me
+JWT_SECRET=change_me
 ```
+
+También puedes partir desde `.env.example` para tener todas las variables requeridas.
 
 ### Ejecutar Localmente
 
@@ -88,6 +93,19 @@ El servidor debería mostrar:
 ```
 
 ---
+
+## 🧩 Backend (Blog + Usuarios)
+
+El backend ahora incluye gestión de publicaciones, usuarios con roles y subida de imágenes (SQLite local).
+
+### Endpoints clave
+
+- `POST /api/auth/login` → inicia sesión y devuelve JWT.
+- `POST /api/auth/users` → crea usuarios (admin).
+- `GET /api/posts` → lista posts publicados.
+- `GET /api/admin/posts` → lista posts con borradores (admin/editor).
+- `POST /api/posts` → crea post (admin/editor).
+- `POST /api/uploads` → sube imágenes (admin/editor).
 
 ## 🧪 Probar el backend
 

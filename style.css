@@ -18,6 +18,48 @@
     --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5);
 }
 
+/* ===== Logo & Blog Basics (moved from inline styles) ===== */
+.logo-img {
+    height: 48px;
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.post-card {
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+
+.admin-controls {
+    margin-top: 18px;
+}
+
+#adminPanel input,
+#adminPanel textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
 /* ===== LOADER ===== */
 .loader-wrapper {
     position: fixed;
